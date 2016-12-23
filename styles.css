@@ -1,1 +1,70 @@
+/******************************************\
+                $CSS Reset
+\******************************************/
 
+/* basic elements */
+body, html, section, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, th, td
+{
+margin: 0; padding: 0; border: 0; outline: none; box-sizing: border-box;
+}
+
+body {
+line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+padding: 0;
+margin: 0 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+
+ul, ol {
+list-style: none;
+}
+
+a {
+color: green;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: none;
+color: #EBB000;
+}
+
+/******************************************\
+                $Main
+\******************************************/
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+}
+
+#board {
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 10em;
+    height: 10em;
+    border: 1px solid green;
+}
