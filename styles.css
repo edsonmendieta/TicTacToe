@@ -71,4 +71,13 @@ body {
     width: 8em;
     height: 8em;
     border: 1px solid green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.markBox {
+	width: 2em;
+	height: 2em;
+	border: 1px solid red;
 }
