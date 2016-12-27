@@ -52,6 +52,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+	background-color: #E27989;
 }
 
 #board {
@@ -68,16 +69,45 @@ body {
 
 .box {
     /* w & h: n-times font-size of 'row' element */
-    width: 8em;
+    width: 0;
     height: 8em;
-    border: 1px solid green;
+    border: 4px solid transparent;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: width 2s ease, height 2s ease, border 2s ease;
 }
 
+#one3 {
+	width: 0;
+}
+
+#two2 {
+	width: 8em;
+	height: 8em;
+	border: 4px solid #DFE0B3;
+}
+/***********************************
+Gets Rid of unecessary border lines
+************************************/
+#one1, #one2, #one3 {
+	border-top: transparent;
+}
+
+#one1, #two1, #three1 {
+	border-left: transparent;
+}
+
+#one3, #two3, #three3 {
+	border-right: transparent;
+}
+
+#three1, #three2, #three3 {
+	border-bottom: transparent;
+}
+/**********************************/
 .markBox {
 	width: 5em;
 	height: 5em;
-	border: 1px solid red;
+	border: 1px solid transparent;
 }
