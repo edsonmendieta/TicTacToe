@@ -112,6 +112,7 @@ Gets Rid of unecessary border lines
 	color: lightgreen;
 	font-size: 300%;
 	cursor: pointer;
+	-moz-user-select: none; /* No text highlight */
 	opacity: 0;
 	transition: opacity 1s ease;
 }

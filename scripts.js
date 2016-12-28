@@ -4,6 +4,9 @@ window.onload = function() {
     // Marks player turn
     var markType = 1;
 
+    // Turn Count
+    var turn = 0;
+
     // Letter Nodes ------------------------
     // var ex = document.createTextNode('X');
 
@@ -31,6 +34,8 @@ window.onload = function() {
     for (var j = 0; j < markBoxes.length; j++) {
 
         markBoxes[j].addEventListener('click', function() {
+
+            turn += 1;
 
             switch(markType) {
                 case 1:
