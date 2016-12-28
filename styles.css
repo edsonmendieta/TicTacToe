@@ -103,8 +103,8 @@ Gets Rid of unecessary border lines
 }
 /**********************************/
 .markBox {
-	width: 5em;
-	height: 5em;
+	width: inherit; /* same width as parent */
+	height: inherit; /* same height as parent */
 	border: 1px solid transparent;
 	display: flex;
 	align-items: center;
@@ -114,15 +114,10 @@ Gets Rid of unecessary border lines
 	cursor: pointer;
 }
 
-#three2 > div {
-	color: lightblue;
+.greenX {
+	color: lightgreen;
 }
-#two1 > div {
-	color: lightblue;
-}
-#three3 > div {
-	color: lightblue;
-}
-#one3 > div {
+
+.blueO {
 	color: lightblue;
 }

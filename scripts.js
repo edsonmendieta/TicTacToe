@@ -4,6 +4,12 @@ window.onload = function() {
     // Marks player turn
     var markType = 1;
 
+    // Letter Nodes ------------------------
+    var ex = document.createTextNode('X');
+
+    var oh = document.createTextNode('O');
+    //--------------------------------------
+
     // All elements with '.box' class
     var allBoxes = document.getElementsByClassName('box');
 
@@ -21,7 +27,7 @@ window.onload = function() {
     // All elements with '.markBox' class
     var markBoxes = document.getElementsByClassName('markBox');
 
-    // Adds click-listener to '.markBox' elements
+    // Adds click-listener to 'box' elements
     for (var j = 0; j < markBoxes.length; j++) {
 
         markBoxes[j].addEventListener('click', function() {
@@ -29,10 +35,12 @@ window.onload = function() {
             switch(markType) {
                 case 1:
                     this.className += ' greenX';
+                    this.appendChild(ex);
                     markType = 2;
                     break;
                 case 2:
                     this.className += ' blueO';
+                    this.appendChild(oh);
                     markType = 1;
             } // ends switch
         }); // ends click-function
