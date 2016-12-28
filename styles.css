@@ -112,12 +112,16 @@ Gets Rid of unecessary border lines
 	color: lightgreen;
 	font-size: 300%;
 	cursor: pointer;
+	opacity: 0;
+	transition: opacity 1s ease;
 }
 
 .greenX {
 	color: lightgreen;
+	opacity: 1; /* 'X' fades-in */
 }
 
 .blueO {
 	color: lightblue;
+	opacity: 1; /* 'O' fades-in */
 }

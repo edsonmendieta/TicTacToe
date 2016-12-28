@@ -5,9 +5,9 @@ window.onload = function() {
     var markType = 1;
 
     // Letter Nodes ------------------------
-    var ex = document.createTextNode('X');
+    // var ex = document.createTextNode('X');
 
-    var oh = document.createTextNode('O');
+    // var oh = document.createTextNode('O');
     //--------------------------------------
 
     // All elements with '.box' class
@@ -35,11 +35,13 @@ window.onload = function() {
             switch(markType) {
                 case 1:
                     this.className += ' greenX';
+                    var ex = document.createTextNode('X');
                     this.appendChild(ex);
                     markType = 2;
                     break;
                 case 2:
                     this.className += ' blueO';
+                    var oh = document.createTextNode('O');
                     this.appendChild(oh);
                     markType = 1;
             } // ends switch
