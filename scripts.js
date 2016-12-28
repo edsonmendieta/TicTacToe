@@ -37,19 +37,24 @@ window.onload = function() {
 
             turn += 1;
 
-            switch(markType) {
-                case 1:
-                    this.className += ' greenX';
-                    var ex = document.createTextNode('X');
-                    this.appendChild(ex);
-                    markType = 2;
-                    break;
-                case 2:
-                    this.className += ' blueO';
-                    var oh = document.createTextNode('O');
-                    this.appendChild(oh);
-                    markType = 1;
-            } // ends switch
+            var lastClass = this.classList.item(this.classList.length - 1);
+
+            // Only execute if box isn't already used.
+            if (lastClass !== 'greenX' && lastClass !== 'blueO') {
+                switch(markType) {
+                    case 1:
+                        this.className += ' greenX';
+                        var ex = document.createTextNode('X');
+                        this.appendChild(ex);
+                        markType = 2;
+                        break;
+                    case 2:
+                        this.className += ' blueO';
+                        var oh = document.createTextNode('O');
+                        this.appendChild(oh);
+                        markType = 1;
+                } // ends switch
+            } // ends 'if'
         }); // ends click-function
     } // ends j for-loop
 
