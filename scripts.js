@@ -43,7 +43,7 @@ window.onload = function() {
             var lastClass = this.classList.item(this.classList.length - 1);
 
             // Only execute if box isn't already used.
-            if (lastClass !== 'greenX' && lastClass !== 'blueO') {
+            if (lastClass !== 'greenX' && (lastClass !== 'blueO' && won == 'no')) {
 
                 turn += 1;
 
@@ -122,6 +122,7 @@ window.onload = function() {
 
                     if (paths[e][1] == 3 || paths[e][1] == 15) {
 
+                        won = 'yes';
                         console.log('won!');
                     }
                 } // ends 'e' for-loop
