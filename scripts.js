@@ -1,6 +1,8 @@
 // When page is fully loaded...
 window.onload = function() {
 
+    var won = 'no';
+
     // Marks player turn
     var markType = 1;
 
@@ -45,7 +47,7 @@ window.onload = function() {
 
                 turn += 1;
 
-                // 'amount' value determined by markType
+                // ''amount' value' determined by markType
                 var amount;
 
                 if (markType == 1) {
@@ -55,7 +57,7 @@ window.onload = function() {
                     amount = 5;
                 }
                 //---------------------------------------
-
+                //'path' updated based on box clicked
                 switch(this.parentNode.id) {
                     case 'one1':
                         paths[0][1] += amount; //row1
@@ -100,8 +102,7 @@ window.onload = function() {
                         paths[6][1] += amount; // diag1
                 } //ends switch 1
 
-                console.log(paths);
-
+                // Appends X or O depending on turn
                 switch(markType) {
                     case 1:
                         this.className += ' greenX';
@@ -116,7 +117,14 @@ window.onload = function() {
                         markType = 1;
                 } // ends switch 2
 
+                // Checks for 'three-in-a-row' (win)
+                for (var e = 0; e < paths.length && won == 'no'; e++) {
 
+                    if (paths[e][1] == 3 || paths[e][1] == 15) {
+
+                        console.log('won!');
+                    }
+                } // ends 'e' for-loop
             } // ends 'if'
         }); // ends click-function
     } // ends 'j' for-loop
