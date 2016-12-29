@@ -7,6 +7,9 @@ window.onload = function() {
     // Turn Count
     var turn = 0;
 
+    // Win Paths
+    var paths = [['row1', 0],['row2', 0],['row3', 0],['col1', 0],['col2', 0],['col3', 0],['diag1', 0],['diag2', 0]];
+
     // Letter Nodes ------------------------
     // var ex = document.createTextNode('X');
 
@@ -35,12 +38,70 @@ window.onload = function() {
 
         markBoxes[j].addEventListener('click', function() {
 
-            turn += 1;
-
             var lastClass = this.classList.item(this.classList.length - 1);
 
             // Only execute if box isn't already used.
             if (lastClass !== 'greenX' && lastClass !== 'blueO') {
+
+                turn += 1;
+
+                // 'amount' value determined by markType
+                var amount;
+
+                if (markType == 1) {
+                    amount = 1;
+                }
+                else {
+                    amount = 5;
+                }
+                //---------------------------------------
+
+                switch(this.parentNode.id) {
+                    case 'one1':
+                        paths[0][1] += amount; //row1
+                        paths[3][1] += amount; //col1
+                        paths[6][1] += amount; // diag1
+                        break;
+                    case 'one2':
+                        paths[0][1] += amount; //row1
+                        paths[4][1] += amount; //col4
+                        break;
+                    case 'one3':
+                        paths[0][1] += amount; //row1
+                        paths[5][1] += amount; //col3
+                        paths[7][1] += amount; //diag2
+                        break;
+                    case 'two1':
+                        paths[1][1] += amount; //row2
+                        paths[3][1] += amount; //col1
+                        break;
+                    case 'two2':
+                        paths[1][1] += amount; //row2
+                        paths[4][1] += amount; //col4
+                        paths[6][1] += amount; // diag1
+                        paths[7][1] += amount; //diag2
+                        break;
+                    case 'two3':
+                        paths[1][1] += amount; //row2
+                        paths[5][1] += amount; //col3
+                        break;
+                    case 'three1':
+                        paths[2][1] += amount; //row3
+                        paths[3][1] += amount; //col1
+                        paths[7][1] += amount; //diag2
+                        break;
+                    case 'three2':
+                        paths[2][1] += amount; //row3
+                        paths[4][1] += amount; //col4
+                        break;
+                    case 'three3':
+                        paths[2][1] += amount; //row3
+                        paths[5][1] += amount; //col3
+                        paths[6][1] += amount; // diag1
+                } //ends switch 1
+
+                console.log(paths);
+
                 switch(markType) {
                     case 1:
                         this.className += ' greenX';
@@ -53,10 +114,12 @@ window.onload = function() {
                         var oh = document.createTextNode('O');
                         this.appendChild(oh);
                         markType = 1;
-                } // ends switch
+                } // ends switch 2
+
+
             } // ends 'if'
         }); // ends click-function
-    } // ends j for-loop
+    } // ends 'j' for-loop
 
 
 } // END ALL
