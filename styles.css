@@ -69,6 +69,7 @@ body {
 
 .box {
     /* w & h: n-times font-size of 'row' element */
+	position: relative;
     width: 0;
     height: 8em;
     border: 4px solid transparent;
@@ -126,3 +127,53 @@ Gets Rid of unecessary border lines
 	color: lightblue;
 	opacity: 1; /* 'O' fades-in */
 }
+
+
+/************************\
+        $Win-lines
+\************************/
+
+.rowLine{
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 5px;
+	background-color: blue;
+	z-index: 2;
+}
+
+.colLine{
+	position: absolute;
+	top:0;
+	width: 5px;
+	height: 0;
+	background-color: green;
+	z-index: 2;
+}
+
+#lineD1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 5px;
+	background-color: silver;
+	transform: rotate(45deg);
+	transform-origin: left top;
+	z-index: 2;
+}
+
+#lineD2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 5px;
+	background-color: silver;
+	transform: rotate(-45deg);
+	transform-origin: left bottom;
+	z-index: 2;
+}
+
+
+/************************/

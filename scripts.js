@@ -124,6 +124,41 @@ window.onload = function() {
 
                         won = 'yes';
                         console.log('won!');
+
+                        //where line goes
+                        switch(paths[e][0]) {
+                            case 'row1':
+                                var lineStart = document.getElementById('lineR1');
+                                lineStart.style.width = '280px';
+                                break;
+                            case 'row2':
+                                var lineStart = document.getElementById('lineR2');
+                                lineStart.style.width = '280px';
+                                break;
+                            case 'row3':
+                                var lineStart = document.getElementById('lineR3');
+                                lineStart.style.width = '280px';
+                                break;
+                            case 'col1':
+                                var lineStart = document.getElementById('lineC1');
+                                lineStart.style.height = '280px';
+                                break;
+                            case 'col2':
+                                var lineStart = document.getElementById('lineC2');
+                                lineStart.style.height = '280px';
+                                break;
+                            case 'col3':
+                                var lineStart = document.getElementById('lineC3');
+                                lineStart.style.height = '280px';
+                                break;
+                            case 'diag1':
+                                var lineStart = document.getElementById('lineD1');
+                                lineStart.style.width = '400px';
+                                break;
+                            case 'diag2':
+                            var lineStart = document.getElementById('lineD2');
+                            lineStart.style.width = '400px';
+                        }
                     }
                 } // ends 'e' for-loop
             } // ends 'if'
