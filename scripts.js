@@ -12,11 +12,22 @@ window.onload = function() {
     // Win Paths
     var paths = [['row1', 0],['row2', 0],['row3', 0],['col1', 0],['col2', 0],['col3', 0],['diag1', 0],['diag2', 0]];
 
-    // Letter Nodes ------------------------
-    // var ex = document.createTextNode('X');
 
-    // var oh = document.createTextNode('O');
-    //--------------------------------------
+    // Line-win start-point Boxes -------------
+        var one1 = document.getElementById('one1');
+        var two1 = document.getElementById('two1');
+        var three1 = document.getElementById('three1');
+        var one2 = document.getElementById('one2');
+        var one3 = document.getElementById('one3');
+    //-----------------------------------------
+
+    // Line-win box outer-box styles ----------
+        var styleOne1 = window.getComputedStyle(one1);
+        var styleTwo1 = window.getComputedStyle(two1);
+        var styleThree1 = window.getComputedStyle(three1);
+        var styleOne2 = window.getComputedStyle(one2);
+        var styleOne3 = window.getComputedStyle(one3);
+    //-----------------------------------------
 
     // All elements with '.box' class
     var allBoxes = document.getElementsByClassName('box');
@@ -128,8 +139,30 @@ window.onload = function() {
                         //where line goes
                         switch(paths[e][0]) {
                             case 'row1':
+                                // box where line starts from.
                                 var lineStart = document.getElementById('lineR1');
-                                lineStart.style.width = '280px';
+
+                                // width of box line starts from
+                                var width = styleOne1.getPropertyValue('width');
+                                console.log(width);
+
+                                // turns above px value into array elements
+                                var widthNum = width.split('');
+                                console.log(widthNum);
+
+                                // removes 'px' from array
+                                widthNum.pop();
+                                widthNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                widthNum = widthNum.join('');
+
+                                // makes line the length of win path
+                                var lineW = widthNum * 3;
+                                console.log(lineW);
+
+                                // sets this length as the width value of line
+                                lineStart.style.width = lineW + 'px';
                                 break;
                             case 'row2':
                                 var lineStart = document.getElementById('lineR2');
