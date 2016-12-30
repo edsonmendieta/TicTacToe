@@ -140,6 +140,7 @@ Gets Rid of unecessary border lines
 	height: 5px;
 	background-color: blue;
 	z-index: 2;
+	transition: width .5s ease;
 }
 
 .colLine{
@@ -149,6 +150,7 @@ Gets Rid of unecessary border lines
 	height: 0;
 	background-color: green;
 	z-index: 2;
+	transition: height .5s ease;
 }
 
 #lineD1 {
@@ -161,6 +163,7 @@ Gets Rid of unecessary border lines
 	transform: rotate(45deg);
 	transform-origin: left top;
 	z-index: 2;
+	transition: width .5s ease;
 }
 
 #lineD2 {
@@ -173,6 +176,7 @@ Gets Rid of unecessary border lines
 	transform: rotate(-45deg);
 	transform-origin: left bottom;
 	z-index: 2;
+	transition: width .5s ease;
 }
 
 

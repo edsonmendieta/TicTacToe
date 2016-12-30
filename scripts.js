@@ -22,11 +22,8 @@ window.onload = function() {
     //-----------------------------------------
 
     // Line-win box outer-box styles ----------
-        var styleOne1 = window.getComputedStyle(one1);
-        var styleTwo1 = window.getComputedStyle(two1);
-        var styleThree1 = window.getComputedStyle(three1);
-        var styleOne2 = window.getComputedStyle(one2);
-        var styleOne3 = window.getComputedStyle(one3);
+        var boxStylesWidth = window.getComputedStyle(one1);
+        var boxStylesHeight = window.getComputedStyle(one2);
     //-----------------------------------------
 
     // All elements with '.box' class
@@ -143,7 +140,7 @@ window.onload = function() {
                                 var lineStart = document.getElementById('lineR1');
 
                                 // width of box line starts from
-                                var width = styleOne1.getPropertyValue('width');
+                                var width = boxStylesWidth.getPropertyValue('width');
                                 console.log(width);
 
                                 // turns above px value into array elements
@@ -165,32 +162,180 @@ window.onload = function() {
                                 lineStart.style.width = lineW + 'px';
                                 break;
                             case 'row2':
+                                // box where line starts from.
                                 var lineStart = document.getElementById('lineR2');
-                                lineStart.style.width = '280px';
+
+                                // width of box line starts from
+                                var width = boxStylesWidth.getPropertyValue('width');
+                                console.log(width);
+
+                                // turns above px value into array elements
+                                var widthNum = width.split('');
+                                console.log(widthNum);
+
+                                // removes 'px' from array
+                                widthNum.pop();
+                                widthNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                widthNum = widthNum.join('');
+
+                                // makes line the length of win path
+                                var lineW = widthNum * 3;
+                                console.log(lineW);
+
+                                // sets this length as the width value of line
+                                lineStart.style.width = lineW + 'px';
                                 break;
                             case 'row3':
                                 var lineStart = document.getElementById('lineR3');
-                                lineStart.style.width = '280px';
+
+                                // width of box line starts from
+                                var width = boxStylesWidth.getPropertyValue('width');
+                                console.log(width);
+
+                                // turns above px value into array elements
+                                var widthNum = width.split('');
+                                console.log(widthNum);
+
+                                // removes 'px' from array
+                                widthNum.pop();
+                                widthNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                widthNum = widthNum.join('');
+
+                                // makes line the length of win path
+                                var lineW = widthNum * 3;
+                                console.log(lineW);
+
+                                // sets this length as the width value of line
+                                lineStart.style.width = lineW + 'px';
                                 break;
                             case 'col1':
                                 var lineStart = document.getElementById('lineC1');
-                                lineStart.style.height = '280px';
+
+                                // height of box line starts from
+                                var height = boxStylesHeight.getPropertyValue('height');
+                                console.log(height);
+
+                                // turns above px value into array elements
+                                var heightNum = height.split('');
+                                console.log(heightNum);
+
+                                // removes 'px' from array
+                                heightNum.pop();
+                                heightNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                heightNum = heightNum.join('');
+
+                                // makes line the length of win path
+                                var lineH = heightNum * 3;
+                                console.log(lineH);
+
+                                // sets this length as the width value of line
+                                lineStart.style.height = lineH + 'px';
                                 break;
                             case 'col2':
                                 var lineStart = document.getElementById('lineC2');
-                                lineStart.style.height = '280px';
+
+                                // height of box line starts from
+                                var height = boxStylesHeight.getPropertyValue('height');
+                                console.log(height);
+
+                                // turns above px value into array elements
+                                var heightNum = height.split('');
+                                console.log(heightNum);
+
+                                // removes 'px' from array
+                                heightNum.pop();
+                                heightNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                heightNum = heightNum.join('');
+
+                                // makes line the length of win path
+                                var lineH = heightNum * 3;
+                                console.log(lineH);
+
+                                // sets this length as the width value of line
+                                lineStart.style.height = lineH + 'px';
                                 break;
                             case 'col3':
                                 var lineStart = document.getElementById('lineC3');
-                                lineStart.style.height = '280px';
+
+                                // height of box line starts from
+                                var height = boxStylesHeight.getPropertyValue('height');
+                                console.log(height);
+
+                                // turns above px value into array elements
+                                var heightNum = height.split('');
+                                console.log(heightNum);
+
+                                // removes 'px' from array
+                                heightNum.pop();
+                                heightNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                heightNum = heightNum.join('');
+
+                                // makes line the length of win path
+                                var lineH = heightNum * 3;
+                                console.log(lineH);
+
+                                // sets this length as the width value of line
+                                lineStart.style.height = lineH + 'px';
                                 break;
                             case 'diag1':
                                 var lineStart = document.getElementById('lineD1');
-                                lineStart.style.width = '400px';
+
+                                // width of box line starts from
+                                var width = boxStylesWidth.getPropertyValue('width');
+                                console.log(width);
+
+                                // turns above px value into array elements
+                                var widthNum = width.split('');
+                                console.log(widthNum);
+
+                                // removes 'px' from array
+                                widthNum.pop();
+                                widthNum.pop();
+
+                                // value is now solely a number w/o 'px'
+                                widthNum = widthNum.join('');
+
+                                // makes line the length of win path
+                                var lineW = widthNum * 4.2;
+                                console.log(lineW);
+
+                                // sets this length as the width value of line
+                                lineStart.style.width = lineW + 'px';
                                 break;
                             case 'diag2':
                             var lineStart = document.getElementById('lineD2');
-                            lineStart.style.width = '400px';
+
+                            // width of box line starts from
+                            var width = boxStylesWidth.getPropertyValue('width');
+                            console.log(width);
+
+                            // turns above px value into array elements
+                            var widthNum = width.split('');
+                            console.log(widthNum);
+
+                            // removes 'px' from array
+                            widthNum.pop();
+                            widthNum.pop();
+
+                            // value is now solely a number w/o 'px'
+                            widthNum = widthNum.join('');
+
+                            // makes line the length of win path
+                            var lineW = widthNum * 4.2;
+                            console.log(lineW);
+
+                            // sets this length as the width value of line
+                            lineStart.style.width = lineW + 'px';
                         }
                     }
                 } // ends 'e' for-loop
