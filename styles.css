@@ -138,7 +138,7 @@ Gets Rid of unecessary border lines
 	left: 0;
 	width: 0;
 	height: 5px;
-	background-color: blue;
+	background-color: #9C2A5E;
 	z-index: 2;
 	transition: width .5s ease;
 }
@@ -148,7 +148,7 @@ Gets Rid of unecessary border lines
 	top:0;
 	width: 5px;
 	height: 0;
-	background-color: green;
+	background-color: #9C2A5E;
 	z-index: 2;
 	transition: height .5s ease;
 }
@@ -159,7 +159,7 @@ Gets Rid of unecessary border lines
 	left: 0;
 	width: 0;
 	height: 5px;
-	background-color: silver;
+	background-color: #9C2A5E;
 	transform: rotate(45deg);
 	transform-origin: left top;
 	z-index: 2;
@@ -172,7 +172,7 @@ Gets Rid of unecessary border lines
 	left: 0;
 	width: 0;
 	height: 5px;
-	background-color: silver;
+	background-color: #9C2A5E;
 	transform: rotate(-45deg);
 	transform-origin: left bottom;
 	z-index: 2;
