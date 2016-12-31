@@ -336,8 +336,45 @@ window.onload = function() {
 
                             // sets this length as the width value of line
                             lineStart.style.width = lineW + 'px';
-                        }
-                    }
+                            //RESET GOES HERE --------------------------------------------------
+
+                            setTimeout(function(){
+                                // Resets line-length
+                                lineStart.style.width = 0;
+
+                                // After line is gone
+                                setTimeout(function(){
+
+                                    // Iterates over '.markBox' elements
+                                    for (var q = 0; q < markBoxes.length; q++) {
+
+                                        // Removes x's and O's
+                                        if (markBoxes[q].firstChild) {
+
+                                            markBoxes[q].removeChild(markBoxes[q].childNodes[0]);
+                                        }
+
+                                        // Removes last class: 'greenX'/'blueO'
+                                        switch(markBoxes[q].classList[1]) {
+                                            case 'greenX':
+                                                markBoxes[q].classList.remove('greenX');
+                                                break;
+                                            case 'blueO':
+                                                markBoxes[q].classList.remove('blueO');
+                                        } // ends switch
+                                    } // ends 'q' for-loop
+                                }, 1000);
+
+                            }, 2000);
+
+                            //------------------------------------------------
+
+                        } // ends win-line switch
+                        // Potential Reset-------------------------
+
+
+                        //-----------------------------------------
+                    } // ends win 'if'
                 } // ends 'e' for-loop
             } // ends 'if'
         }); // ends click-function
