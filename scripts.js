@@ -160,6 +160,14 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.width = lineW + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.width = 0;
+
+                                }, 2000);
+
                                 break;
                             case 'row2':
                                 // box where line starts from.
@@ -186,6 +194,14 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.width = lineW + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.width = 0;
+
+                                }, 2000);
+
                                 break;
                             case 'row3':
                                 var lineStart = document.getElementById('lineR3');
@@ -211,6 +227,14 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.width = lineW + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.width = 0;
+
+                                }, 2000);
+
                                 break;
                             case 'col1':
                                 var lineStart = document.getElementById('lineC1');
@@ -236,6 +260,14 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.height = lineH + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.height = 0;
+
+                                }, 2000);
+
                                 break;
                             case 'col2':
                                 var lineStart = document.getElementById('lineC2');
@@ -261,7 +293,16 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.height = lineH + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.height = 0;
+
+                                }, 2000);
+
                                 break;
+
                             case 'col3':
                                 var lineStart = document.getElementById('lineC3');
 
@@ -286,7 +327,16 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.height = lineH + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.height = 0;
+
+                                }, 2000);
+
                                 break;
+
                             case 'diag1':
                                 var lineStart = document.getElementById('lineD1');
 
@@ -311,7 +361,16 @@ window.onload = function() {
 
                                 // sets this length as the width value of line
                                 lineStart.style.width = lineW + 'px';
+
+                                // Resets line length
+                                setTimeout(function(){
+
+                                    lineStart.style.width = 0;
+
+                                }, 2000);
+
                                 break;
+
                             case 'diag2':
                             var lineStart = document.getElementById('lineD2');
 
@@ -336,44 +395,58 @@ window.onload = function() {
 
                             // sets this length as the width value of line
                             lineStart.style.width = lineW + 'px';
-                            //RESET GOES HERE --------------------------------------------------
 
+                            // Resets line length
                             setTimeout(function(){
                                 // Resets line-length
                                 lineStart.style.width = 0;
 
-                                // After line is gone
-                                setTimeout(function(){
-
-                                    // Iterates over '.markBox' elements
-                                    for (var q = 0; q < markBoxes.length; q++) {
-
-                                        // Removes x's and O's
-                                        if (markBoxes[q].firstChild) {
-
-                                            markBoxes[q].removeChild(markBoxes[q].childNodes[0]);
-                                        }
-
-                                        // Removes last class: 'greenX'/'blueO'
-                                        switch(markBoxes[q].classList[1]) {
-                                            case 'greenX':
-                                                markBoxes[q].classList.remove('greenX');
-                                                break;
-                                            case 'blueO':
-                                                markBoxes[q].classList.remove('blueO');
-                                        } // ends switch
-                                    } // ends 'q' for-loop
-                                }, 1000);
-
                             }, 2000);
 
-                            //------------------------------------------------
-
                         } // ends win-line switch
-                        // Potential Reset-------------------------
+
+                        // RESET-----RESET-----RESET-----RESET-----RESET---
+
+                        // After line is gone
+                        setTimeout(function(){
+
+                            // Iterates over '.markBox' elements
+                            for (var q = 0; q < markBoxes.length; q++) {
+
+                                // Removes x's and O's
+                                if (markBoxes[q].firstChild) {
+
+                                    markBoxes[q].removeChild(markBoxes[q].childNodes[0]);
+                                }
+
+                                // Removes last class: 'greenX'/'blueO'
+                                switch(markBoxes[q].classList[1]) {
+                                    case 'greenX':
+                                        markBoxes[q].classList.remove('greenX');
+                                        break;
+                                    case 'blueO':
+                                        markBoxes[q].classList.remove('blueO');
+                                } // ends switch
+                            } // ends 'q' for-loop
+
+                            // resets 'paths' elements[1] value
+                            for (var r = 0; r < paths.length; r++) {
+
+                                paths[r][1] = 0;
+                            }
+                            //----------------------------------
+
+                            // resets 'won', 'turn', 'markType' vars
+                            won = 'no';
+                            markType = 1;
+                            turn = 0;
+
+                        }, 3000);
 
 
-                        //-----------------------------------------
+                        // END OF RESET--------------------------------------
+
+
                     } // ends win 'if'
                 } // ends 'e' for-loop
             } // ends 'if'
