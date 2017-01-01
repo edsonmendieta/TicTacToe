@@ -449,6 +449,49 @@ window.onload = function() {
 
                     } // ends win 'if'
                 } // ends 'e' for-loop
+
+                // IF DRAW: RESET---RESET-------
+
+                if (turn == 9 && won == 'no') {
+
+                    setTimeout(function(){
+
+                        // Iterates over '.markBox' elements
+                        for (var q = 0; q < markBoxes.length; q++) {
+
+                            // Removes x's and O's
+                            if (markBoxes[q].firstChild) {
+
+                                markBoxes[q].removeChild(markBoxes[q].childNodes[0]);
+                            }
+
+                            // Removes last class: 'greenX'/'blueO'
+                            switch(markBoxes[q].classList[1]) {
+                                case 'greenX':
+                                    markBoxes[q].classList.remove('greenX');
+                                    break;
+                                case 'blueO':
+                                    markBoxes[q].classList.remove('blueO');
+                            } // ends switch
+                        } // ends 'q' for-loop
+
+                        // resets 'paths' elements[1] value
+                        for (var r = 0; r < paths.length; r++) {
+
+                            paths[r][1] = 0;
+                        }
+                        //----------------------------------
+
+                        // resets 'won', 'turn', 'markType' vars
+                        won = 'no';
+                        markType = 1;
+                        turn = 0;
+
+                    }, 3000);
+                } // Ends DRAW 'if'
+
+                //------------------------------
+
             } // ends 'if'
         }); // ends click-function
     } // ends 'j' for-loop
