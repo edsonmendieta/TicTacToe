@@ -153,7 +153,7 @@ Gets Rid of unecessary border lines
 	transition: height .5s ease;
 }
 
-#lineD1 {
+#lineD1 { /* Top-left to bottom-right */
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -166,7 +166,7 @@ Gets Rid of unecessary border lines
 	transition: width .5s ease;
 }
 
-#lineD2 {
+#lineD2 { /* Bottom-left to top-right */
 	position: absolute;
 	bottom: 0;
 	left: 0;

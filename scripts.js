@@ -51,7 +51,7 @@ window.onload = function() {
             var lastClass = this.classList.item(this.classList.length - 1);
 
             // Only execute if box isn't already used.
-            if (lastClass !== 'greenX' && (lastClass !== 'blueO' && won == 'no')) {
+            if (lastClass !== 'greenX' && (lastClass !== 'blueO' && won == 'no' && (turn % 2 === 0))) {
 
                 turn += 1;
 
@@ -487,14 +487,27 @@ window.onload = function() {
                         markType = 1;
                         turn = 0;
 
-                    }, 3000);
+                    }, 2000);
                 } // Ends DRAW 'if'
 
-                //------------------------------
+                //COMPUTERS TURN-----------------
+                setTimeout(compTurn, 1000);
+                //-------------------------------
 
-            } // ends 'if'
+            } // ends 'if': the one immediately after click
         }); // ends click-function
     } // ends 'j' for-loop
 
+    // FUNCTION: COMPUTER's TURN-----------------------------
+
+    function compTurn(){
+
+        if (turn % 2 !== 0) {
+
+            alert('conditional works');
+        }
+    }
+
+    //-------------------------------------------------------
 
 } // END ALL
