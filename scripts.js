@@ -1,6 +1,27 @@
 // When page is fully loaded...
 window.onload = function() {
 
+    var freeSpot;
+
+    function freeBox(number){
+        switch(number){
+            case 2:
+                freeSpot = 'no';
+                break;
+            case 10:
+                freeSpot = 'no';
+                break;
+            case 7:
+                freeSpot = 'no';
+                break;
+            case 11:
+                freeSpot = 'no';
+                break;
+            case number:
+                freeSpot = 'yes';
+        }
+    }
+
     var won = 'no';
 
     // Turn Count
@@ -419,7 +440,7 @@ window.onload = function() {
                                 }
 
                                 // Removes last class: 'greenX'/'blueO'
-                                switch(markBoxes[q].classList[1]) {
+                                switch(markBoxes[q].classList.item(markBoxes[q].classList.length - 1)) {
                                     case 'greenX':
                                         markBoxes[q].classList.remove('greenX');
                                         break;
@@ -452,9 +473,9 @@ window.onload = function() {
                 // IF DRAW: RESET---RESET-------
 
                 if (turn == 9 && won == 'no') {
-
+                    console.log('draw comfirmed');
                     setTimeout(function(){
-
+                        console.log('draw function fired');
                         // Iterates over '.markBox' elements
                         for (var q = 0; q < markBoxes.length; q++) {
 
@@ -465,7 +486,7 @@ window.onload = function() {
                             }
 
                             // Removes last class: 'greenX'/'blueO'
-                            switch(markBoxes[q].classList[1]) {
+                            switch(markBoxes[q].classList.item(markBoxes[q].classList.length - 1)) {
                                 case 'greenX':
                                     markBoxes[q].classList.remove('greenX');
                                     break;
@@ -490,7 +511,9 @@ window.onload = function() {
                 } // Ends DRAW 'if'
 
                 //COMPUTERS TURN-----------------
+                if (turn !== 9){
                 setTimeout(compTurn, 1000);
+                }
                 //-------------------------------
 
             } // ends 'if': the one immediately after click
@@ -540,13 +563,16 @@ window.onload = function() {
                             break;
                         case 3:
                             console.log('last switch case read');
-                            if(paths[v][1] === 0) {
+                            var pathNum = paths[v][1];
+                            freeBox(pathNum);
+                            if(freeSpot == 'yes') {
                                 // The 3 boxes of this win-path
                                 winPath = document.getElementsByClassName(paths[v][0]);
                                 console.log('last switch conditional passed');
+                                console.log('Chosen path: ' + paths[v][0]);
                                 findExactBox();
+                                freeSpot = 'no';
                             } // End IF
-                            break;
                     } // Switch
                 } // INNER-LOOP (used for win-path looping)
             } // OUTER-LOOP (used for each conditional)
@@ -929,7 +955,7 @@ window.onload = function() {
                                 }
 
                                 // Removes last class: 'greenX'/'blueO'
-                                switch(markBoxes[q].classList[1]) {
+                                switch(markBoxes[q].classList.item(markBoxes[q].classList.length - 1)) {
                                     case 'greenX':
                                         markBoxes[q].classList.remove('greenX');
                                         break;
@@ -973,7 +999,7 @@ window.onload = function() {
                             }
 
                             // Removes last class: 'greenX'/'blueO'
-                            switch(markBoxes[q].classList[1]) {
+                            switch(markBoxes[q].classList.item(markBoxes[q].classList.length - 1)) {
                                 case 'greenX':
                                     markBoxes[q].classList.remove('greenX');
                                     break;
