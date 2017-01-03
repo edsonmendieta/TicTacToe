@@ -12,6 +12,8 @@ window.onload = function() {
     // Win Paths
     var paths = [['row1', 0],['row2', 0],['row3', 0],['col1', 0],['col2', 0],['col3', 0],['diag1', 0],['diag2', 0]];
 
+    var winPath;
+
     // var winPath1 = document.getElementsByClassName(paths[0][0]);
     //
     // for (var w = 0; w < winPath1.length; w++) {
@@ -56,6 +58,9 @@ window.onload = function() {
     for (var j = 0; j < markBoxes.length; j++) {
 
         markBoxes[j].addEventListener('click', function() {
+
+            //for compTurn function
+            placed = 'no';
 
             var lastClass = this.classList.item(this.classList.length - 1);
 
@@ -495,34 +500,48 @@ window.onload = function() {
     // FUNCTION: COMPUTER's TURN-----------------------------
     function compTurn(){
 
-        if (turn % 2 !== 0) {
+        console.log('compturn fired');
 
+        if (turn % 2 !== 0) {
+            console.log('yes, turn is odd');
             turn += 1;
 
-            var ohText = document.createTextNode('O');
+            console.log(turn);
 
             for (var n = 0; n < 4 && placed == 'no'; n++){
+                console.log('entered OUTER loop');
 
                 for (var v = 0; v < 8 && placed == 'no'; v++){
+                    console.log('entered INNER loop');
 
                     switch(n){
                         case 0:
-                            if(paths[v][0] == 2) {
+                            if(paths[v][1] == 2) {
+                                // The 3 boxes of this win-path
+                                winPath = document.getElementsByClassName(paths[v][0]);
                                 findExactBox();
                             } // End IF
                             break;
                         case 1:
-                            if(paths[v][0] == 10) {
+                            if(paths[v][1] == 10) {
+                                // The 3 boxes of this win-path
+                                winPath = document.getElementsByClassName(paths[v][0]);
                                 findExactBox();
                             } // End IF
                             break;
                         case 2:
-                            if(paths[v][0] == 5) {
+                            if(paths[v][1] == 5) {
+                                // The 3 boxes of this win-path
+                                winPath = document.getElementsByClassName(paths[v][0]);
                                 findExactBox();
                             } // End IF
                             break;
                         case 3:
-                            if(paths[v][0] >= 0) {
+                            console.log('last switch case read');
+                            if(paths[v][1] === 0) {
+                                // The 3 boxes of this win-path
+                                winPath = document.getElementsByClassName(paths[v][0]);
+                                console.log('last switch conditional passed');
                                 findExactBox();
                             } // End IF
                             break;
@@ -534,13 +553,12 @@ window.onload = function() {
     //-------------------------------------------------------
 
     function findExactBox(){
+        console.log('exactBox fired');
         // has win-path of marker been found?
         placed = 'yes';
         // has place of marker been found?
         var foundEmpty = 'no';
-        // The 3 boxes of this win-path
-        var winPath = document.getElementsByClassName(paths[v][0]);
-        // Loops over 3 boxes to find empty one
+        // Loops over 3 winPath boxes to find empty one
         for (var t = 0; t < winPath.length && foundEmpty == 'no'; t++){
 
             // Last class of element
@@ -553,51 +571,62 @@ window.onload = function() {
                 foundEmpty = 'yes';
 
                 // Adds 'blueO' class to element
-                this.className += ' blueO';
+                winPath[t].className += ' blueO';
+
+                var ohText = document.createTextNode('O');
 
                 // Adds 'O' to box
-                this.appendChild(ohText);
+                winPath[t].appendChild(ohText);
 
                 // Adds 5 to related appro. win-path
-                switch(this.parentNode.id){
+                switch(winPath[t].parentNode.id){
                     case 'one1':
+                    console.log('one1 chosen.');
                         paths[0][1] += 5; //row1
                         paths[3][1] += 5; //col1
                         paths[6][1] += 5; // diag1
                         break;
                     case 'one2':
+                    console.log('one2 chosen.');
                         paths[0][1] += 5; //row1
                         paths[4][1] += 5; //col4
                         break;
                     case 'one3':
+                    console.log('one3 chosen.');
                         paths[0][1] += 5; //row1
                         paths[5][1] += 5; //col3
                         paths[7][1] += 5; //diag2
                         break;
                     case 'two1':
+                    console.log('two1 chosen.');
                         paths[1][1] += 5; //row2
                         paths[3][1] += 5; //col1
                         break;
                     case 'two2':
+                    console.log('two2 chosen.');
                         paths[1][1] += 5; //row2
                         paths[4][1] += 5; //col4
                         paths[6][1] += 5; // diag1
                         paths[7][1] += 5; //diag2
                         break;
                     case 'two3':
+                    console.log('two3 chosen.');
                         paths[1][1] += 5; //row2
                         paths[5][1] += 5; //col3
                         break;
                     case 'three1':
+                    console.log('three1 chosen.');
                         paths[2][1] += 5; //row3
                         paths[3][1] += 5; //col1
                         paths[7][1] += 5; //diag2
                         break;
                     case 'three2':
+                    console.log('three2 chosen.');
                         paths[2][1] += 5; //row3
                         paths[4][1] += 5; //col4
                         break;
                     case 'three3':
+                    console.log('three3 chosen.');
                         paths[2][1] += 5; //row3
                         paths[5][1] += 5; //col3
                         paths[6][1] += 5; // diag1
@@ -965,6 +994,7 @@ window.onload = function() {
                 } // Ends DRAW 'if'
             } // IF: finalClass
         }// end loop
+        foundEmpty = 'no';
     } //compBoxFound -------------------------------------------------------
 
 } // END ALL
