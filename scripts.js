@@ -517,6 +517,7 @@ window.onload = function() {
                     switch(n){
                         case 0:
                             if(paths[v][1] == 2) {
+                                console.log('exactly 2 in win-path');
                                 // The 3 boxes of this win-path
                                 winPath = document.getElementsByClassName(paths[v][0]);
                                 findExactBox();
@@ -524,6 +525,7 @@ window.onload = function() {
                             break;
                         case 1:
                             if(paths[v][1] == 10) {
+                                console.log('exactly 10 in win-path');
                                 // The 3 boxes of this win-path
                                 winPath = document.getElementsByClassName(paths[v][0]);
                                 findExactBox();
@@ -563,9 +565,10 @@ window.onload = function() {
 
             // Last class of element
             var finalClass = winPath[t].classList.item(winPath[t].classList.length - 1);
+            console.log(finalClass);
 
             //IF box is empty...
-            if (finalClass !== 'green' && finalClass !== 'blueO'){
+            if (finalClass !== 'greenX' && finalClass !== 'blueO'){
 
                 // Ends loop
                 foundEmpty = 'yes';
@@ -954,8 +957,8 @@ window.onload = function() {
 
                     } // ends win 'if'
                 } // ends 'e' for-loop
-                // IF DRAW: RESET---RESET-------
 
+                // IF DRAW: RESET---RESET-------
                 if (turn == 9 && won == 'no') {
 
                     setTimeout(function(){
