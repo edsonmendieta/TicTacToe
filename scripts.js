@@ -35,14 +35,6 @@ window.onload = function() {
 
     var winPath;
 
-    // var winPath1 = document.getElementsByClassName(paths[0][0]);
-    //
-    // for (var w = 0; w < winPath1.length; w++) {
-    //
-    //     var finalClass = winPath1[w].classList.item(winPath1[w].classList.length - 1);
-    //
-    //     console.log(finalClass);
-    // }
 
 
     // Line-win start-point Boxes -------------
@@ -539,7 +531,7 @@ window.onload = function() {
 
                     switch(n){
                         case 0:
-                            if(paths[v][1] == 2) {
+                            if(paths[v][1] == 10) {
                                 console.log('exactly 2 in win-path');
                                 // The 3 boxes of this win-path
                                 winPath = document.getElementsByClassName(paths[v][0]);
@@ -547,7 +539,7 @@ window.onload = function() {
                             } // End IF
                             break;
                         case 1:
-                            if(paths[v][1] == 10) {
+                            if(paths[v][1] == 2) {
                                 console.log('exactly 10 in win-path');
                                 // The 3 boxes of this win-path
                                 winPath = document.getElementsByClassName(paths[v][0]);
